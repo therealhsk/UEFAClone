@@ -30,8 +30,10 @@ const styles = StyleSheet.create({
   valueContainer: {
     marginRight: 10,
   },
-  label: {},
-  value: { fontSize: 20, fontWeight: "bold" },
+  label: {
+    color: "#333",
+  },
+  value: { fontSize: 18, fontWeight: "bold" },
 });
 
 export default TeamStats;
