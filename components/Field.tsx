@@ -24,16 +24,17 @@ const Field = () => {
         alignItems: "center",
       }}
     >
-      {Object.keys(players).map((position) => (
+      {Object.keys(players).map((position, index) => (
         <View
+          key={index}
           style={{
             flexDirection: "row",
             justifyContent: "space-around",
             width: "100%",
           }}
         >
-          {players[position].map((player) => (
-            <FieldPlayer player={player} position={position} />
+          {players[position].map((player, index) => (
+            <FieldPlayer player={player} position={position} key={index} />
           ))}
         </View>
       ))}
