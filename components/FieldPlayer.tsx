@@ -26,7 +26,7 @@ const FieldPlayer = (props: FieldPlayerProps) => {
           fontSize: 12,
         }}
       >
-        {position}
+        {player ? player.name : position}
       </Text>
     </View>
   );
