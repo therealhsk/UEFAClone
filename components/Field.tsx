@@ -4,15 +4,19 @@ import { ImageBackground, Text, View } from "react-native";
 import field from "../assets/images/field.jpg";
 import { FontAwesome5 } from "@expo/vector-icons";
 import FieldPlayer from "./FieldPlayer";
+import { useRecoilValue } from "recoil";
+import { myPlayersByPosition } from "../atoms/MyTeam";
 
-const players: { [key: string]: null[] } = {
-  FWD: [null, null, null],
-  MID: [null, null, null],
-  DEF: [null, null, null, null],
-  GK: [null],
-};
+// const players: { [key: string]: null[] } = {
+//   FWD: [null, null, null],
+//   MID: [null, null, null],
+//   DEF: [null, null, null, null],
+//   GK: [null],
+// };
 
 const Field = () => {
+  const players = useRecoilValue(myPlayersByPosition);
+
   return (
     <ImageBackground
       source={field}

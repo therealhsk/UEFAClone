@@ -13,6 +13,7 @@ import players from "../assets/data/players";
 import Field from "../components/Field";
 import Filters from "../components/Filters";
 import PlayerListItem from "../components/PlayerListItem";
+import PlayersList from "../components/PlayersList";
 import TeamStats from "../components/TeamStats";
 
 export default function TabOneScreen() {
@@ -34,14 +35,13 @@ export default function TabOneScreen() {
       <BottomSheet ref={playersBottomSheet} index={0} snapPoints={snapPoints}>
         <Pressable
           onPress={() => filterBottomSheet.current?.expand()}
-          style={styles.bottomContainer}
+          style={[styles.bottomContainer, { marginTop: 10 }]}
         >
           <Text>Filters</Text>
         </Pressable>
-        <BottomSheetFlatList
-          data={players}
-          renderItem={({ item }) => <PlayerListItem player={item} />}
-        />
+        <React.Suspense fallback={<Text>Loading</Text>}>
+          <PlayersList />
+        </React.Suspense>
       </BottomSheet>
       <BottomSheet ref={filterBottomSheet} index={0} snapPoints={snapPoints}>
         <Filters />
